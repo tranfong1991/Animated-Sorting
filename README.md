@@ -7,5 +7,4 @@ Instruction: run this application on Eclipse with the following arguments:
 
 {number of elements} {order}
 
-where: order = 1 means descending
-       order = -1 means ascending
+where: order = 1 means descending, -1 means ascending
