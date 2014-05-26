@@ -18,7 +18,7 @@ public class AnimationMain {
 	final static int HEIGHT = 240;
 	final static int LENGTH = 9;
 
-	static void randomNumbersGenerator(String n) {
+	static final void randomNumbersGenerator(String n) {
 		int num = Integer.parseInt(n);
 		Random rand = new Random();
 
