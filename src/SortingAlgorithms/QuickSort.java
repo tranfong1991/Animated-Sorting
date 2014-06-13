@@ -2,20 +2,20 @@ package SortingAlgorithms;
 
 import java.util.Random;
 
-import ArrayPosition.ArrayPosition;
+import Range.Range;
 
 public class QuickSort extends AnimatedSort {
 	public QuickSort(int width, int height, Integer[] obj, int order) {
 		super(width, height, obj, "Quick Sort", order);
 	}
 
-	private ArrayPosition[] partition(int start, int end) {
+	private Range[] partition(int start, int end) {
 		Random rand = new Random();
 		// Randomly choose an index between start and end (inclusive)
 		int pivot = rand.nextInt(end - start + 1) + start;
 		int i = start;
 		int j = end;
-		ArrayPosition[] pos = new ArrayPosition[2];
+		Range[] range = new Range[2];
 
 		while (i <= j) {
 			if (compare(pivot, i) == order) {
@@ -41,15 +41,15 @@ public class QuickSort extends AnimatedSort {
 		}
 
 		if (pivot != start)
-			pos[0] = new ArrayPosition(start, pivot - 1);
+			range[0] = new Range(start, pivot - 1);
 		if (pivot != end)
-			pos[1] = new ArrayPosition(pivot + 1, end);
+			range[1] = new Range(pivot + 1, end);
 
-		return pos;
+		return range;
 	}
 
-	private void quickSort(ArrayPosition ap) {
-		ArrayPosition[] pos = partition(ap.start, ap.end);
+	private void quickSort(Range r) {
+		Range[] pos = partition(r.start, r.end);
 
 		if (pos[0] != null)
 			quickSort(pos[0]);
@@ -59,6 +59,6 @@ public class QuickSort extends AnimatedSort {
 
 	@Override
 	protected void sort() {
-		quickSort(new ArrayPosition(0, length() - 1));
+		quickSort(new Range(0, length() - 1));
 	}
 }

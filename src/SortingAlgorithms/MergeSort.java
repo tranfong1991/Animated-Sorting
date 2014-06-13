@@ -1,29 +1,29 @@
 package SortingAlgorithms;
 
-import ArrayPosition.ArrayPosition;
+import Range.Range;
 
 public class MergeSort extends AnimatedSort {
 	public MergeSort(int width, int height, Integer[] obj, int order) {
 		super(width, height, obj, "Merge Sort", order);
 	}
 
-	private ArrayPosition[] split(int start, int end) {
-		ArrayPosition[] pos = new ArrayPosition[2];
+	private Range[] split(int start, int end) {
+		Range[] range = new Range[2];
 		int length = end - start + 1;
 		int mid = length / 2 + start;
 
 		if (start != end) {
-			pos[0] = new ArrayPosition(start, mid - 1);
-			pos[1] = new ArrayPosition(mid, end);
+			range[0] = new Range(start, mid - 1);
+			range[1] = new Range(mid, end);
 		}
 
-		return pos;
+		return range;
 	}
 
-	private void merge(ArrayPosition p1, ArrayPosition p2) {
-		Integer[] arr = new Integer[p2.end - p1.start + 1];
-		int s1 = p1.start, s2 = p2.start;
-		int e1 = p1.end, e2 = p2.end;
+	private void merge(Range r1, Range r2) {
+		Integer[] arr = new Integer[r2.end - r1.start + 1];
+		int s1 = r1.start, s2 = r2.start;
+		int e1 = r1.end, e2 = r2.end;
 		int i = 0;
 
 		while (true) {
@@ -48,25 +48,25 @@ public class MergeSort extends AnimatedSort {
 			}
 		}
 
-		int start = p1.start;
+		int start = r1.start;
 		for (int k = 0; k < arr.length; k++, start++)
 			setObj(start, arr[k]);
 	}
 
-	private void mergeSort(ArrayPosition ap) {
-		ArrayPosition[] pos = split(ap.start, ap.end);
+	private void mergeSort(Range r) {
+		Range[] range = split(r.start, r.end);
 
-		if (pos[0] != null)
-			mergeSort(pos[0]);
-		if (pos[1] != null)
-			mergeSort(pos[1]);
+		if (range[0] != null)
+			mergeSort(range[0]);
+		if (range[1] != null)
+			mergeSort(range[1]);
 
-		if (pos[0] != null && pos[1] != null)
-			merge(pos[0], pos[1]);
+		if (range[0] != null && range[1] != null)
+			merge(range[0], range[1]);
 	}
 
 	@Override
 	protected void sort() {
-		mergeSort(new ArrayPosition(0, length() - 1));
+		mergeSort(new Range(0, length() - 1));
 	}
 }
