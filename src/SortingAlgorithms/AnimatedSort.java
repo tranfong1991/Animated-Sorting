@@ -9,7 +9,7 @@ import javax.swing.JComponent;
 public abstract class AnimatedSort extends JComponent implements Runnable {
 	final static private int SLEEP_TIME = 30;
 	final static private int BASELINE = 200;
-	final static private int MAGNIFICATION = 2;
+	final static private int MAGNIFICATION = 3;
 	final static private Color RECT_COLOR = new Color(0x0066FF);
 	final static private Color FINISH_COLOR = Color.GREEN;
 	final static private Color BORDER_COLOR = Color.BLACK;

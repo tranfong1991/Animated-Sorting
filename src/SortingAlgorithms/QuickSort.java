@@ -1,7 +1,6 @@
 package SortingAlgorithms;
 
 import java.util.Random;
-
 import Range.Range;
 
 public class QuickSort extends AnimatedSort {
