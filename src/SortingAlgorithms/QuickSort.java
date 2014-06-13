@@ -48,12 +48,12 @@ public class QuickSort extends AnimatedSort {
 	}
 
 	private void quickSort(Range r) {
-		Range[] pos = partition(r.start, r.end);
+		Range[] range = partition(r.start, r.end);
 
-		if (pos[0] != null)
-			quickSort(pos[0]);
-		if (pos[1] != null)
-			quickSort(pos[1]);
+		if (range[0] != null)
+			quickSort(range[0]);
+		if (range[1] != null)
+			quickSort(range[1]);
 	}
 
 	@Override
